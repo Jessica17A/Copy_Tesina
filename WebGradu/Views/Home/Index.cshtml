@@ -1,0 +1,137 @@
+﻿@model IEnumerable<WebGradu.Models.Stock>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Plantilla.cshtml";
+
+    // Consume TempData (se muestra solo una vez)
+    var alertaStock = TempData["StockBajo"] as string;
+    var isAuth = User?.Identity?.IsAuthenticated == true;
+
+    var autoCloseMs = 5000; // duración (ms)
+}
+
+@if (isAuth && !string.IsNullOrWhiteSpace(alertaStock))
+{
+    <style>
+        .stock-card {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 500px;
+            max-width: calc(100vw - 16px);
+            background: #fff;
+            color: #212529;
+            border: 1px solid rgba(220,53,69,.35);
+            border-left: 6px solid #dc3545;
+            border-radius: 14px;
+            padding: 12px 14px;
+            box-shadow: 0 10px 24px rgba(0,0,0,.12);
+            z-index: 2000;
+        }
+
+            .stock-card .title {
+                font-weight: 600;
+                line-height: 1.25;
+            }
+
+        .progress {
+            height: 3px;
+            background: rgba(220,53,69,.15);
+        }
+
+        .progress-bar {
+            background: #dc3545;
+            width: 0%;
+        }
+
+        .btn-outline-danger-soft {
+            color: #dc3545;
+            border-color: #dc3545;
+        }
+
+            .btn-outline-danger-soft:hover {
+                color: #fff;
+                background: #dc3545;
+                border-color: #dc3545;
+            }
+    </style>
+
+    <div id="stockAlert" class="stock-card alert alert-dismissible fade show" role="alert" aria-live="polite">
+        <div class="d-flex align-items-start">
+            <i class="bi bi-exclamation-triangle-fill me-2" style="font-size:1.25rem; color:#dc3545;"></i>
+            <div class="flex-grow-1">
+                <div class="title">@alertaStock</div>
+                <div class="mt-2">
+                    <a asp-controller="Notificaciones" asp-action="Index"
+                       class="btn btn-sm btn-outline-danger-soft d-inline-flex align-items-center">
+                        <i class="bi bi-eye-fill me-1"></i> Ver detalles
+                    </a>
+                </div>
+            </div>
+            <button type="button" class="btn-close ms-2" aria-label="Cerrar"></button>
+        </div>
+        <div class="progress mt-2"><div id="stockProgress" class="progress-bar" role="progressbar"></div></div>
+    </div>
+
+    <script>
+        (function () {
+            var card = document.getElementById('stockAlert');
+            if (!card) return;
+
+            var bar = document.getElementById('stockProgress');
+            var total = @autoCloseMs;
+            var start = performance.now(), elapsed = 0, paused = false, raf;
+
+            // Inicializa Bootstrap Alert si está disponible
+            if (window.bootstrap && bootstrap.Alert) new bootstrap.Alert(card);
+
+            function closeAlert() {
+                cancelAnimationFrame(raf);
+                if (window.bootstrap && bootstrap.Alert) {
+                    bootstrap.Alert.getOrCreateInstance(card).close();
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(function(){ card.remove(); }, 250);
+                }
+            }
+
+            function tick(t) {
+                if (!paused) {
+                    elapsed = t - start;
+                    var pct = Math.min(100, (elapsed / total) * 100);
+                    if (bar) bar.style.width = pct + '%';
+                    if (elapsed >= total) return closeAlert();
+                }
+                raf = requestAnimationFrame(tick);
+            }
+
+            // Controles
+            card.querySelector('.btn-close')?.addEventListener('click', closeAlert);
+            card.addEventListener('mouseenter', function(){ paused = true; });
+            card.addEventListener('mouseleave', function(){
+                paused = false;
+                start = performance.now() - elapsed; // reanuda compensando
+            });
+
+            requestAnimationFrame(tick);
+        })();
+    </script>
+}
+
+<div style="margin-top: 180px; display: flex; justify-content: center;">
+    <img src="~/images/logito.png" class="animate__animated animate__zoomIn" height="300" width="300" alt="Logo" />
+</div>
+
+<div style="margin-top: 60px; text-align: center;">
+    <h1 style="font-family: 'Dreaming Outloud Pro','Cursive'; font-style: italic; color: #4682B4;">
+        SOMOS SUEÑOS, SOMOS PERSEVERANCIA, SOMOS AMOR<br />"SOMOS UN MUNDO DE COLOR"
+    </h1>
+</div>
+
+@if (Model != null && !Model.Any())
+{
+    <div class="text-center text-muted mt-4">
+        <small>No hay productos con stock bajo según la regla actual.</small>
+    </div>
+}
