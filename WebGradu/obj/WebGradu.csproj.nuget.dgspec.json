@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JESSICA GONZALEZ\\Downloads\\cambios\\WebGradu\\WebGradu.csproj": {}
+    "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\WebGradu.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JESSICA GONZALEZ\\Downloads\\cambios\\WebGradu\\WebGradu.csproj": {
+    "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\WebGradu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JESSICA GONZALEZ\\Downloads\\cambios\\WebGradu\\WebGradu.csproj",
+        "projectUniqueName": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\WebGradu.csproj",
         "projectName": "WebGradu",
-        "projectPath": "C:\\Users\\JESSICA GONZALEZ\\Downloads\\cambios\\WebGradu\\WebGradu.csproj",
-        "packagesPath": "C:\\Users\\JESSICA GONZALEZ\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JESSICA GONZALEZ\\Downloads\\cambios\\WebGradu\\obj\\",
+        "projectPath": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\WebGradu.csproj",
+        "packagesPath": "C:\\Users\\jgonzalez\\.nuget\\packages\\",
+        "outputPath": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\JESSICA GONZALEZ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jgonzalez\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

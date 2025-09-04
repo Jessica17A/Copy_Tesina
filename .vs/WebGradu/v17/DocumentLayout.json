@@ -1,0 +1,84 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C0EBC735-2117-42F8-B657-4D8926C3684C}|WebGradu\\WebGradu.csproj|\\\\datastore.sie.local\\user$\\jgonzalez\\downloads\\copy_tesina\\webgradu\\views\\categorias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0EBC735-2117-42F8-B657-4D8926C3684C}|WebGradu\\WebGradu.csproj|\\\\datastore.sie.local\\user$\\jgonzalez\\downloads\\copy_tesina\\webgradu\\views\\categorias\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0EBC735-2117-42F8-B657-4D8926C3684C}|WebGradu\\WebGradu.csproj|\\\\datastore.sie.local\\user$\\jgonzalez\\downloads\\copy_tesina\\webgradu\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\Views\\Categorias\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebGradu\\Views\\Categorias\\Create.cshtml",
+              "ToolTip": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\Views\\Categorias\\Create.cshtml",
+              "RelativeToolTip": "WebGradu\\Views\\Categorias\\Create.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T21:14:13.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\Views\\Categorias\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebGradu\\Views\\Categorias\\Index.cshtml",
+              "ToolTip": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\Views\\Categorias\\Index.cshtml",
+              "RelativeToolTip": "WebGradu\\Views\\Categorias\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwEEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T21:09:59.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\appsettings.json",
+              "RelativeDocumentMoniker": "WebGradu\\appsettings.json",
+              "ToolTip": "\\\\DATASTORE.sie.local\\User$\\jgonzalez\\Downloads\\Copy_Tesina\\WebGradu\\appsettings.json",
+              "RelativeToolTip": "WebGradu\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-04T18:09:58.617Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

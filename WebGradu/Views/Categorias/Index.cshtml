@@ -3,59 +3,83 @@
 @{
     ViewData["Title"] = "Listado de Categorías";
     Layout = "~/Views/Shared/_Plantilla.cshtml";
+    var filtro = (string?)ViewData["CurrentFilter"] ?? "";
 }
 
-<div class="container mt-5" style="max-width: 900px;">
-    <div class="col-12 text-center">
-        <h1>Listado de Categorías</h1>
-    </div>
-</div>
-<div class="row">
-    <div class="col-12 text-center">
-        <a asp-action="Create" class="btn btn-success">
-            <i class="bi bi-plus-circle"></i> Crear una Nueva
-        </a>
-    </div>
-</div>
-<div class="row mb-4">
-    <div class="col-12 d-flex justify-content-end">
-        <form asp-action="Index" method="get" class="d-flex">
-            <div class="form-group d-flex">
-                <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Buscar" style="width: 300px; margin-right: 10px;"> <!-- Ancho reducido -->
-                <button type="submit" class="btn btn-info btn-sm">
-                    <!-- Clase btn-sm para un botón más pequeño -->
-                    <i class="bi bi-search"></i> Buscar
-                </button>
+<div class="container mt-5" style="max-width: 1100px;">
+    <div class="card border-0 shadow-sm">
+        <div class="card-body py-3">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <h1 class="h4 m-0">Listado de Categorías</h1>
+                <a asp-action="Create" class="btn btn-success btn-sm">
+                    <i class="bi bi-plus-circle me-1"></i> Crear nueva
+                </a>
             </div>
-        </form>
+
+            <form asp-action="Index" method="get" class="mt-3">
+                <div class="input-group input-group-sm ms-auto" style="max-width: 360px;">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input type="text"
+                           name="searchString"
+                           value="@filtro"
+                           class="form-control"
+                           placeholder="Buscar...">
+                    @if (!string.IsNullOrWhiteSpace(filtro))
+                    {
+                        <a asp-action="Index" class="btn btn-outline-secondary">Limpiar</a>
+                    }
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table align-middle mb-0">
+                <thead class="bg-primary bg-opacity-25">
+                    <tr>
+                        <th scope="col">Nombre de la categoría</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Fecha de Creación</th>
+                        <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(m => item.NombreCategoria)</td>
+                                <td class="text-muted">@Html.DisplayFor(m => item.Descripcion)</td>
+                                <td>
+                                    @(@item.FechaCreacion.ToString("dd/MM/yyyy")                                                            )
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Acciones">
+                                        <a asp-action="Details" asp-route-id="@item.CategoriaID"
+                                           class="btn btn-outline-info" title="Detalles">
+                                            <i class="bi bi-info-circle"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.CategoriaID"
+                                           class="btn btn-warning ms-2" title="Editar">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-4">
+                                <i class="bi bi-inbox me-1"></i> No hay categorías para mostrar.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-
-<table class="table">
-    <thead class="table-primary">
-        <tr>
-            <th>Nombre de la categoría</th>
-            <th>Descripción</th>
-            <th>Fecha de Creación</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.NombreCategoria)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
-                    <td>@Html.DisplayFor(modelItem => item.FechaCreacion)</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.CategoriaID" class="btn btn-warning btn-sm" title="Editar">
-                            <i class="bi bi-pencil"></i>
-                        </a> |
-                        <a asp-action="Details" asp-route-id="@item.CategoriaID" class="btn btn-info btn-sm" title="Detalles">
-                            <i class="bi bi-info-circle"></i>
-                        </a>
-                    </td>
-                </tr>
-        }
-    </tbody>
-</table>
